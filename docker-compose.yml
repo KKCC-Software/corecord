@@ -1,0 +1,40 @@
+version: "3.9"
+
+services:
+  synapse:
+    image: matrixdotorg/synapse:latest
+    container_name: corecord-synapse
+    volumes:
+      - "./data/synapse:/data"
+    environment:
+      - SYNAPSE_SERVER_NAME=localhost
+      - SYNAPSE_REPORT_STATS=no
+    ports:
+      - "8008:8008"   # Synapse HTTP
+    networks:
+      - corecord_net
+    restart: unless-stopped
+
+  element:
+    image: vectorim/element-web:latest
+    container_name: corecord-web
+    volumes:
+      - "./element-config:/app/config"
+    ports:
+      - "8080:80"     # Access Element via localhost:8080
+    depends_on:
+      - synapse
+    networks:
+      - corecord_net
+    restart: unless-stopped
+
+  coturn:
+    image: instrumentisto/coturn
+    container_name: corecord-coturn
+    restart: unless-stopped
+    networks:
+      - corecord_net
+
+networks:
+  corecord_net:
+    driver: bridge

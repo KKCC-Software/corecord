@@ -1,0 +1,21 @@
+{
+  "brand": {
+    "name": "Corecord",
+    "logo": "logo.png",
+    "favicon": "favicon.ico"
+  },
+  "default_theme": "dark",
+  "default_language": "en",
+  "default_hs_url": "http://corecord.duckdns.org:8008",
+  "default_is_url": "",
+  "login": {
+    "show_branding": true,
+    "custom_text": "Welcome to Corecord!"
+  },
+  "room_directory": {
+    "servers": ["http://corecord.duckdns.org:8008"]
+  },
+  "integrations": {
+    "widgets": []
+  }
+}

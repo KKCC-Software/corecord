@@ -1,0 +1,27 @@
+:root {
+    --main-accent: #2ecc71;
+    --main-background: #121212;
+    --main-text-color: #ffffff;
+    --main-text-muted: #b0b0b0;
+    --main-header-background: #1f1f1f;
+    --main-button-background: #2ecc71;
+    --main-button-text-color: #ffffff;
+}
+
+body {
+    background-color: var(--main-background) !important;
+    color: var(--main-text-color) !important;
+}
+
+a {
+    color: var(--main-accent) !important;
+}
+
+button {
+    background-color: var(--main-button-background) !important;
+    color: var(--main-button-text-color) !important;
+}
+
+header, .mx_RoomHeader {
+    background-color: var(--main-header-background) !important;
+}
