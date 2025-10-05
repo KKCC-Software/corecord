@@ -1,11 +1,11 @@
-# Use the official Element web image as base
+# Base image
 FROM vectorim/element-web:latest
 
 # Copy custom configuration
 COPY element-config /app/config
 
-# Expose default Element port
+# Expose port
 EXPOSE 8080
 
-# Start Element
-CMD ["sh", "-c", "exec /docker-entrypoint.sh"]
+# Run nginx in foreground so Render keeps the container alive
+CMD ["nginx", "-g", "daemon off;"]
