@@ -10,14 +10,14 @@
     "accent": "#00FF00"
   },
   "default_language": "en",
-  "default_hs_url": "https://corecord.onrender.com",
+  "default_hs_url": "https://matrix.org",
   "default_is_url": "",
   "login": {
     "show_branding": true,
     "custom_text": "Welcome to Corecord!"
   },
   "room_directory": {
-    "servers": ["https://corecord.onrender.com"]
+    "servers": ["https://matrix.org"]
   },
   "integrations": {
     "widgets": []
