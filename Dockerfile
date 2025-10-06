@@ -1,11 +1,33 @@
-# Base image
+# -----------------------
+# Base image for Element
+# -----------------------
 FROM vectorim/element-web:latest
 
-# Copy custom configuration
+# -----------------------
+# Install dependencies for Synapse
+# -----------------------
+USER root
+RUN apk add --no-cache python3 py3-pip curl bash
+
+# -----------------------
+# Copy Element config
+# -----------------------
 COPY element-config /app/config
 
-# Expose port
-EXPOSE 8080
+# -----------------------
+# Copy Synapse config
+# -----------------------
+COPY synapse-config /data
 
-# Run nginx in foreground so Render keeps the container alive
-CMD ["nginx", "-g", "daemon off;"]
+# -----------------------
+# Expose ports
+# -----------------------
+EXPOSE 8080 8008 8448
+
+# -----------------------
+# Start Synapse in background and Element in foreground
+# -----------------------
+CMD bash -c "\
+    python3 -m synapse.app.homeserver --config-path /data/homeserver.yaml & \
+    nginx -g 'daemon off;' \
+"
