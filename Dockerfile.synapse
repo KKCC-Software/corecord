@@ -1,0 +1,20 @@
+# Base image with Python
+FROM python:3.12-alpine
+
+# Install dependencies
+RUN apk add --no-cache build-base libffi-dev python3-dev openssl-dev curl git bash
+
+# Install Synapse
+RUN pip install --no-cache-dir matrix-synapse
+
+# Copy your Synapse configuration
+COPY synapse-config /data
+
+# Set working directory
+WORKDIR /data
+
+# Expose the Synapse HTTP port
+EXPOSE 8008
+
+# Run Synapse homeserver
+CMD ["python3", "-m", "synapse.app.homeserver", "--config-path", "/data/homeserver.yaml"]
