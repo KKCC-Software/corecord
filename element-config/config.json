@@ -1,18 +1,25 @@
 {
-  "default_server_config": {
-    "m.homeserver": {
-      "base_url": "http://corecord.duckdns.org",
-      "server_name": "http://corecord.duckdns.org"
-    }
+  "brand": {
+    "name": "Corecord",
+    "logo": "logo.png",
+    "favicon": "favicon.ico"
   },
-  "brand": "Corecord",
-  "logo_url": "/config/logo.png",
-  "favicon_url": "/config/favicon.png",
   "default_theme": "dark",
-  "theme": {
-    "colors": {
-      "accent_primary": "#00FF00",
-      "accent_secondary": "#008000"
-    }
+  "theme_colors": {
+    "primary": "#00FF00",
+    "accent": "#00FF00"
+  },
+  "default_language": "en",
+  "default_hs_url": "https://corecord.onrender.com:8008",
+  "default_is_url": "",
+  "login": {
+    "show_branding": true,
+    "custom_text": "Welcome to Corecord!"
+  },
+  "room_directory": {
+    "servers": ["https://corecord.onrender.com:8008"]
+  },
+  "integrations": {
+    "widgets": []
   }
 }
